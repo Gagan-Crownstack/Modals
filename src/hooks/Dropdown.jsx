@@ -5,6 +5,7 @@ const Dropdown = ({ id, data, selectedId, onSelect }) => {
   const [isSelected, setIsSelected] = useState();
   const [isopen, setIsOpen] = useState(false);
 
+  //set color
   const handleClick = (color) => {
     setIsSelected(color);
     setIsOpen(!isopen);
@@ -13,6 +14,7 @@ const Dropdown = ({ id, data, selectedId, onSelect }) => {
   };
 
   useEffect(() => {
+    //check if there is a previously Color Id then If yes then set the Id
     if (selectedId && data) {
       const newSelectedItem = data.find((item) => item.id === selectedId);
       newSelectedItem && setIsSelected(newSelectedItem);
@@ -25,6 +27,8 @@ const Dropdown = ({ id, data, selectedId, onSelect }) => {
   }, []);
 
   const dropdownRef = useRef(null);
+
+  //check if the button is clicked outside then closee the dropdown
   useOutsideClick({
     ref: dropdownRef,
     handler: () => setIsOpen(false),
