@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SignUp from "../components/SignUp";
 import Modal from "../components/Modal";
+import AdFrind from "../components/AdFrind";
 
 const Dashboard = () => {
   const [show, setshow] = useState(false);
@@ -28,7 +29,7 @@ const Dashboard = () => {
       </button>
       <button
         className="py-2 px-4 rounded-md bg-teal-500 shadow-md hover:opacity-90 active:opacity-70"
-        onClick={() => openModal(<div>IDK</div>)}
+        onClick={() => openModal(<AdFrind />)}
       >
         Add friends
       </button>
